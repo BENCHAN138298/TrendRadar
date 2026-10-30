@@ -40,7 +40,7 @@ app:
 # 详细时间线图请查看 config/timeline.yaml
 # ===============================================================
 schedule:
-  enabled: false                        # 是否启用调度系统（true=启用, false=关闭，默认关闭）
+  enabled: true                         # 是否启用调度系统（true=启用, false=关闭，默认关闭）
   preset: "morning_evening"             # 预设模板名称（见上方说明）
 
 
@@ -69,27 +69,9 @@ platforms:
     - id: "toutiao"
       name: "今日头条"
       expected_domain: "toutiao.com"
-    - id: "baidu"
-      name: "百度热搜"
-      expected_domain: "baidu.com"
-    - id: "wallstreetcn-hot"
-      name: "华尔街见闻"
-      expected_domain: "wallstreetcn.com"
-    - id: "thepaper"
-      name: "澎湃新闻"
-      expected_domain: "thepaper.cn"
     - id: "bilibili-hot-search"
       name: "bilibili 热搜"
       expected_domain: "bilibili.com"
-    - id: "cls-hot"
-      name: "财联社热门"
-      expected_domain: "cls.cn"
-    - id: "ifeng"
-      name: "凤凰网"
-      expected_domain: "ifeng.com"
-    - id: "tieba"
-      name: "贴吧"
-      expected_domain: "baidu.com"
     - id: "weibo"
       name: "微博"
       expected_domain: "weibo.com"
@@ -111,7 +93,7 @@ platforms:
 # max_age_days: 可选，覆盖全局 freshness_filter.max_age_days
 # ===============================================================
 rss:
-  enabled: true                       # 是否启用 RSS 抓取（true=启用, false=关闭）
+  enabled: false                      # 是否启用 RSS 抓取（true=启用, false=关闭）
 
   # 文章新鲜度过滤（过滤超龄旧文章，避免重复推送）
   # 仅在推送阶段过滤，所有文章仍会存入数据库
@@ -238,9 +220,9 @@ display:
     new_items: false                  # 新增热点区域：含热榜新增 + RSS 新增（true=显示, false=隐藏）
                                       # 注：热点词汇统计中的新增标记🆕不受此配置影响
 
-    rss: true                         # RSS 订阅区域（true=显示并分析, false=隐藏并跳过分析）
+    rss: false                        # RSS 订阅区域（true=显示并分析, false=隐藏并跳过分析）
     standalone: false                 # 独立展示区：完整热榜/RSS，不受关键词过滤（true=显示, false=隐藏）
-    ai_analysis: true                 # AI 分析区域（true=显示, false=隐藏）
+    ai_analysis: false                # AI 分析区域（true=显示, false=隐藏）
 
   # 独立展示区：将指定平台/RSS 完整展示，不受关键词过滤
   # 推送展示由 regions.standalone 控制，AI 分析由 ai_analysis.include_standalone 控制
@@ -412,7 +394,7 @@ ai:
 # 9. AI 分析功能（模型配置见上方 ai 段）
 # ===============================================================
 ai_analysis:
-  enabled: true                     # 是否启用 AI 分析（true=启用, false=关闭）—— 总开关
+  enabled: false                    # 是否启用 AI 分析（true=启用, false=关闭）—— 总开关
                                     # 开启 schedule 后此项仍为总开关：false=永远不分析，true=由调度控制
 
   language: "Chinese"               # 分析报告语言（如 "English", "Korean", "法语"）
@@ -441,7 +423,7 @@ ai_analysis:
 # 对推送标题进行翻译，不包含 AI 分析的内容
 # ===============================================================
 ai_translation:
-  enabled: true                     # 是否启用翻译功能（true=启用, false=关闭）
+  enabled: false                    # 是否启用翻译功能（true=启用, false=关闭）
   language: "中文"                   # 翻译目标语言（如 "English", "Korean", "法语"）
   prompt_file: "ai_translation_prompt.txt"   # 提示词文件（相对于 config 目录）
 

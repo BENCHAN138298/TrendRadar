@@ -28,14 +28,10 @@ on:
     #
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     #
-    # 📝 修改运行时间：只改第一个数字（0-59），表示每小时第几分钟运行
-    # 📝 Change time: Only modify the first number (0-59) = minute of each hour
-    #
-    # 示例 / Examples:
-    #   "15 * * * *"     → 每小时第15分钟 / minute 15 every hour
-    #   "30 0-14 * * *"  → 北京时间 8:00-22:00 每小时第30分钟 / Beijing 8am-10pm
-    #
-    - cron: "33 * * * *"
+    # 火龙果剧场：每天两次（北京时间早 08:00、晚 20:00）
+    # Huolongguo: twice daily (Beijing 08:00 and 20:00)
+    # UTC 00:00 & 12:00 = Asia/Shanghai 08:00 & 20:00
+    - cron: "0 0,12 * * *"
 
   workflow_dispatch:
 
